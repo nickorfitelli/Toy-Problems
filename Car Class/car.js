@@ -28,6 +28,37 @@ class Vehicle {
     }
   }
   
-  class Bicycle {
-      // YOUR CODE HERE...
+  class Bicycle extends Vehicle{
+      constructor (color){
+          super(2,30);
+          
+          this.color = color;
+          
+      }
+      
+      accelerate(amount = 5) {
+        return super.accelerate(amount)
+          
+      }
+
+      decelerate(amount = 5) {
+        return super.decelerate(amount)
+          
+      }
+
+      stop(){
+        return (this.currentSpeed = 0);
+      }
   }
+
+const bicycle = new Bicycle('bright red')
+console.log(bicycle.color) // 'bright red'
+console.log(bicycle.numberOfWheels) // 2, it sets this automatically
+console.log(bicycle.maxSpeed) // 30, it sets this automatically
+
+console.log(bicycle.accelerate()) // 5, increase speed by 5 each time
+console.log(bicycle.accelerate()) // 10
+console.log(bicycle.accelerate()) // 15
+
+console.log(bicycle.decelerate()) // 10, decrease speed by 5 each time
+console.log(bicycle.stop()) // 0, a new method that completely stops the bike
