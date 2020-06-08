@@ -4,25 +4,27 @@ function reverseInteger(number) {
   
     let revInt = 0;
     let lastDigit;
+    let num = number;
 
-    revMachine(number);
+    revMachine(num);
 
-    revMachine = (num) => {
-
+    function revMachine(number){
       lastDigit = num % 10; //Get the last digit 
 
-      revInt = (revInt * 10) + lastDigit
-
-      number = number / 10; 
-
-      if(number = 0){
-
+      revInt = (revInt * 10) + lastDigit //add last digit by multiplying current rev by 10
+  
+      num = Math.floor(num/ 10); // remove last digit
+  
+      if(num === 0){
+  
         return revInt;
-
-      } else revMachine(number);
-    };
+  
+      } else revMachine(num);
+    }
   }
+
+
 
   //Test Cases
 
-    var test = reverseInteger("1234");
+    var test = reverseInteger(1234);
