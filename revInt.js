@@ -21,6 +21,11 @@ function reverseInteger(number) {
   
       } else revMachine(num); //recursion
     }
+
+    let answer = revInt;
+
+    return answer;
+
   }
 
 
@@ -28,3 +33,4 @@ function reverseInteger(number) {
   //Test Cases
 
     var test = reverseInteger(1234);
+    console.log(test)
