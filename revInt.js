@@ -13,13 +13,13 @@ function reverseInteger(number) {
 
       revInt = (revInt * 10) + lastDigit //add last digit by multiplying current rev by 10
   
-      num = Math.floor(num/ 10); // remove last digit
+      num = Math.floor(num/ 10); // remove last digit by dividing by 10 and rounding down to get rid of decimal
   
-      if(num === 0){
+      if(num === 0){ // if we divide by 10 and it rounds to zero, there are no more numbers
   
-        return revInt;
+        return revInt; //return the reveresed digit
   
-      } else revMachine(num);
+      } else revMachine(num); //recursion
     }
   }
 
