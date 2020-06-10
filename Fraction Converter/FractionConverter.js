@@ -12,23 +12,43 @@ var toFraction = function(number) {
 
     var returnStr = number.toString();
     var arrHold = returnStr.split('.');
-    var numer;
-    var denom;
+   
+    
 
-    //see if whole number
-    if(arrHold[1] === undefined){
-        return `${arrHold[0]}/1`;
-    }
+        //see if whole number
+        if(arrHold[1] === undefined){
+          return `${arrHold[0]}/1`;
+      }
 
-    //find dec length
+    
     var len = arrHold[1].length;
-    //calc d
-    denom = Math.pow(10,len);
-    //calc n
-    numer = arrHold[1] * denom;
-    //GCD
+    var denom = Math.pow(10,len)
+    var numer = Math.trunc(number * denom);
+    var gcd = gcd_two_numbers(numer,denom);
 
-    gcd = gcd_two_numbers(numer,denom);
+
+
+  // while(true){
+
+  //   if((numer % gcd || denom % gcd) != 0 ) break;
+
+  //   numer = numer/gcd;
+  //   denom = denom/gcd;
+
+  // }
+
+    // //find dec length
+    // var len = arrHold[1].length;
+    // //calc d
+    // denom = Math.pow(len,10);
+    // //calc n
+    // numer = arrHold[1] * denom;
+    // //GCD
+
+    // gcd = gcd_two_numbers(numer,denom);
+
+
+
     
 
     return `${numer/gcd}/${denom/gcd}`
@@ -48,10 +68,5 @@ var toFraction = function(number) {
     return x;
   }
 
-  toFraction(1)
-  toFraction(.25)
-  toFraction(.88)
-  toFraction(1.253213)
-  toFraction(1.75)
-  toFraction(0.0)
-  toFraction(82)
+
+  console.log(toFraction(0.253213))
